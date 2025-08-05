@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Search, ShoppingBag, Compass } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import BusinessDirectory from "./BusinessDirectory";
+import PopularBusinesses from "@/components/PopularBusinesses";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -266,6 +267,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Popular Businesses Section */}
+      <PopularBusinesses />
 
       {/* Business Directory Section */}
       <section className="py-12">
