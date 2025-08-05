@@ -155,9 +155,9 @@ const PopularBusinesses = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Popular Businesses</h2>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-x-[20px] gap-y-4 justify-items-center">
+        <div className="flex flex-wrap justify-center">
           {businesses.map((business) => (
-            <Card key={business.id} className="w-[165px] h-[325px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={business.id} className="w-[165px] h-[325px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 mx-[10px] mb-4">
               <div className="relative">
                 <img
                   src={business.image}
