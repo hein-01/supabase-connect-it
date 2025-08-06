@@ -289,7 +289,7 @@ const PopularBusinesses = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2 mt-4">
+                <div className="space-y-2 mt-2">
                   <Button 
                     className="w-full h-8 text-xs bg-purple-600 hover:bg-purple-700 text-white"
                     onClick={() => window.open(business.onlineShopUrl, '_blank')}
