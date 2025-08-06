@@ -209,7 +209,7 @@ const PopularBusinesses = () => {
         
         <div className="flex flex-wrap justify-center">
           {businesses.map((business) => (
-            <Card key={business.id} className="w-[165px] h-[400px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 mx-[10px] mb-4">
+            <Card key={business.id} className="w-[165px] h-[430px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 mx-[10px] mb-4">
               <div className="relative">
                 <img
                   src={business.image}
@@ -240,12 +240,10 @@ const PopularBusinesses = () => {
                     {business.location}
                   </p>
                   
-                  {business.isVerified && (
-                    <div className="flex items-center gap-1">
-                      <CheckCircle className="w-3 h-3 text-purple-600" />
-                      <span className="text-xs text-purple-600 font-medium">Verified</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-1">
+                    <CheckCircle className="w-3 h-3 text-purple-600" />
+                    <span className="text-xs text-purple-600 font-medium">Verified</span>
+                  </div>
                   
                   {/* Payment and Delivery Options */}
                   <div className="space-y-1">
@@ -276,7 +274,7 @@ const PopularBusinesses = () => {
                           <X className="w-2 h-2 text-white" />
                         }
                       </div>
-                      <span className="text-xs text-muted-foreground">Bank/Digital Payments</span>
+                      <span className="text-xs text-muted-foreground">Digital Payments</span>
                     </div>
                     
                     <div className="flex items-center gap-1">
