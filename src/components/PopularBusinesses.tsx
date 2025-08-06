@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Star, Bookmark, CheckCircle } from 'lucide-react';
+import { Star, Bookmark, CheckCircle, Check, X } from 'lucide-react';
 
 interface Business {
   id: number;
@@ -12,6 +12,10 @@ interface Business {
   isVerified: boolean;
   onlineShopUrl: string;
   facebookUrl: string;
+  cashOnDelivery: boolean;
+  pickupInStore: boolean;
+  bankDigitalPayments: boolean;
+  nextDayDelivery: boolean;
 }
 
 const PopularBusinesses = () => {
@@ -25,7 +29,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: true,
       onlineShopUrl: "#shop1",
-      facebookUrl: "#facebook1"
+      facebookUrl: "#facebook1",
+      cashOnDelivery: true,
+      pickupInStore: false,
+      bankDigitalPayments: true,
+      nextDayDelivery: false
     },
     {
       id: 2,
@@ -35,7 +43,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: true,
       onlineShopUrl: "#shop2",
-      facebookUrl: "#facebook2"
+      facebookUrl: "#facebook2",
+      cashOnDelivery: false,
+      pickupInStore: true,
+      bankDigitalPayments: true,
+      nextDayDelivery: true
     },
     {
       id: 3,
@@ -45,7 +57,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: false,
       onlineShopUrl: "#shop3",
-      facebookUrl: "#facebook3"
+      facebookUrl: "#facebook3",
+      cashOnDelivery: true,
+      pickupInStore: false,
+      bankDigitalPayments: false,
+      nextDayDelivery: false
     },
     {
       id: 4,
@@ -55,7 +71,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: true,
       onlineShopUrl: "#shop4",
-      facebookUrl: "#facebook4"
+      facebookUrl: "#facebook4",
+      cashOnDelivery: true,
+      pickupInStore: true,
+      bankDigitalPayments: true,
+      nextDayDelivery: false
     },
     {
       id: 5,
@@ -65,7 +85,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: true,
       onlineShopUrl: "#shop5",
-      facebookUrl: "#facebook5"
+      facebookUrl: "#facebook5",
+      cashOnDelivery: false,
+      pickupInStore: false,
+      bankDigitalPayments: true,
+      nextDayDelivery: true
     },
     {
       id: 6,
@@ -75,7 +99,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: false,
       onlineShopUrl: "#shop6",
-      facebookUrl: "#facebook6"
+      facebookUrl: "#facebook6",
+      cashOnDelivery: true,
+      pickupInStore: true,
+      bankDigitalPayments: false,
+      nextDayDelivery: false
     },
     {
       id: 7,
@@ -85,7 +113,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: true,
       onlineShopUrl: "#shop7",
-      facebookUrl: "#facebook7"
+      facebookUrl: "#facebook7",
+      cashOnDelivery: false,
+      pickupInStore: true,
+      bankDigitalPayments: true,
+      nextDayDelivery: false
     },
     {
       id: 8,
@@ -95,7 +127,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: true,
       onlineShopUrl: "#shop8",
-      facebookUrl: "#facebook8"
+      facebookUrl: "#facebook8",
+      cashOnDelivery: true,
+      pickupInStore: false,
+      bankDigitalPayments: true,
+      nextDayDelivery: true
     },
     {
       id: 9,
@@ -105,7 +141,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: false,
       onlineShopUrl: "#shop9",
-      facebookUrl: "#facebook9"
+      facebookUrl: "#facebook9",
+      cashOnDelivery: false,
+      pickupInStore: false,
+      bankDigitalPayments: false,
+      nextDayDelivery: false
     },
     {
       id: 10,
@@ -115,7 +155,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: true,
       onlineShopUrl: "#shop10",
-      facebookUrl: "#facebook10"
+      facebookUrl: "#facebook10",
+      cashOnDelivery: true,
+      pickupInStore: true,
+      bankDigitalPayments: true,
+      nextDayDelivery: true
     },
     {
       id: 11,
@@ -125,7 +169,11 @@ const PopularBusinesses = () => {
       rating: 5,
       isVerified: true,
       onlineShopUrl: "#shop11",
-      facebookUrl: "#facebook11"
+      facebookUrl: "#facebook11",
+      cashOnDelivery: false,
+      pickupInStore: true,
+      bankDigitalPayments: true,
+      nextDayDelivery: false
     },
     {
       id: 12,
@@ -135,7 +183,11 @@ const PopularBusinesses = () => {
       rating: 4,
       isVerified: false,
       onlineShopUrl: "#shop12",
-      facebookUrl: "#facebook12"
+      facebookUrl: "#facebook12",
+      cashOnDelivery: true,
+      pickupInStore: false,
+      bankDigitalPayments: false,
+      nextDayDelivery: true
     }
   ];
 
@@ -157,7 +209,7 @@ const PopularBusinesses = () => {
         
         <div className="flex flex-wrap justify-center">
           {businesses.map((business) => (
-            <Card key={business.id} className="w-[165px] h-[325px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 mx-[10px] mb-4">
+            <Card key={business.id} className="w-[165px] h-[400px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 mx-[10px] mb-4">
               <div className="relative">
                 <img
                   src={business.image}
@@ -194,6 +246,49 @@ const PopularBusinesses = () => {
                       <span className="text-xs text-purple-600 font-medium">Verified</span>
                     </div>
                   )}
+                  
+                  {/* Payment and Delivery Options */}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1">
+                      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${business.cashOnDelivery ? 'bg-green-500' : 'bg-gray-400'}`}>
+                        {business.cashOnDelivery ? 
+                          <Check className="w-2 h-2 text-white" /> : 
+                          <X className="w-2 h-2 text-white" />
+                        }
+                      </div>
+                      <span className="text-xs text-muted-foreground">Cash on Delivery</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-1">
+                      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${business.pickupInStore ? 'bg-green-500' : 'bg-gray-400'}`}>
+                        {business.pickupInStore ? 
+                          <Check className="w-2 h-2 text-white" /> : 
+                          <X className="w-2 h-2 text-white" />
+                        }
+                      </div>
+                      <span className="text-xs text-muted-foreground">Pickup In-Store</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-1">
+                      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${business.bankDigitalPayments ? 'bg-green-500' : 'bg-gray-400'}`}>
+                        {business.bankDigitalPayments ? 
+                          <Check className="w-2 h-2 text-white" /> : 
+                          <X className="w-2 h-2 text-white" />
+                        }
+                      </div>
+                      <span className="text-xs text-muted-foreground">Bank/Digital Payments</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-1">
+                      <div className={`w-3 h-3 rounded-full flex items-center justify-center ${business.nextDayDelivery ? 'bg-green-500' : 'bg-gray-400'}`}>
+                        {business.nextDayDelivery ? 
+                          <Check className="w-2 h-2 text-white" /> : 
+                          <X className="w-2 h-2 text-white" />
+                        }
+                      </div>
+                      <span className="text-xs text-muted-foreground">Next-Day Delivery</span>
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="space-y-2 mt-4">
