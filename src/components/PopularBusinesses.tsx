@@ -214,7 +214,7 @@ const PopularBusinesses = () => {
                 <img
                   src={business.image}
                   alt={business.name}
-                  className="w-full h-[120px] object-cover rounded-t-lg"
+                  className="w-[165px] h-[120px] object-cover rounded-t-lg"
                 />
                 <Button
                   variant="ghost"
